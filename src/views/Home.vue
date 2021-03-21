@@ -58,7 +58,7 @@
               rounded="lg"
             >
               <h2>{{count}}</h2>
-              <v-btn v-on:click="increment">Increment</v-btn>
+              <v-btn @click="increment">Increment</v-btn>
             </v-sheet>
           </v-col>
 

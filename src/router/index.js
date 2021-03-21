@@ -41,7 +41,7 @@ async function requireAuth (to, from, next) {
   catch {
     console.log(to)
     localStorage.setItem('quiz-vuejsloginredirect', to.path)
-    next({ name: 'Login', replace: true, params: { message: 'You need to be logged in to go there!' }})
+    next({ name: 'Login', params: { message: 'You need to be logged in to go there!' }})
   }
   next()
 }

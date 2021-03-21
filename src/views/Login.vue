@@ -1,6 +1,5 @@
 <template>
     <div id="login">
-        <h2>{{$route.params.message}}</h2>
         <amplify-authenticator>
             <amplify-sign-up
                 slot="sign-up"
@@ -8,6 +7,7 @@
                 :form-fields.prop="formFields"
                 ></amplify-sign-up>
         </amplify-authenticator>
+        <v-snackbar v-model="snackbar" color="red" top :timeout="5000">{{snackbar}}</v-snackbar>
     </div>
 </template>
 
@@ -23,7 +23,7 @@ const listener = (data) => {
           localStorage.removeItem('quiz-vuejsloginredirect')
           console.log(redirect)
           if(redirect) {
-              router.push(redirect)
+              router.replace(redirect)
           }
           break;
       case 'signOut':
@@ -51,7 +51,8 @@ export default {
                     placeholder: 'password',
                     required: true,
                 }
-            ]
+            ],
+            snackbar: this.$route.params.message
         }
     }
 }
