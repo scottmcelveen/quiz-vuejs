@@ -79,7 +79,7 @@
                 min-height="70vh"
                 rounded="lg"
               >
-                <!--  -->
+                <h2>{{count}}</h2>
               </v-sheet>
             </v-col>
           </v-row>
@@ -99,5 +99,10 @@
         'Updates',
       ],
     }),
+    computed: {
+      count() {
+        return this.$store.state.count
+      }
+    }
   }
 </script>

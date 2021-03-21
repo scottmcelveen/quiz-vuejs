@@ -57,7 +57,8 @@
               min-height="70vh"
               rounded="lg"
             >
-              <!--  -->
+              <h2>{{count}}</h2>
+              <v-btn v-on:click="increment">Increment</v-btn>
             </v-sheet>
           </v-col>
 
@@ -88,5 +89,15 @@
         'Updates',
       ],
     }),
+    methods: {
+      increment() {
+        this.$store.commit('increment')
+      }
+    },
+    computed: {
+      count() {
+        return this.$store.state.count
+      }
+    }
   }
 </script>

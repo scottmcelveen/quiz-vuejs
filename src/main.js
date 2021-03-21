@@ -5,7 +5,7 @@ import store from './store'
 import '@aws-amplify/ui-vue';
 import Amplify from 'aws-amplify';
 import awsconfig from './aws-exports-env';
-import vuetify from './plugins/vuetify';
+import vuetify from './plugins/vuetify';  
 Amplify.configure(awsconfig);
 
 Vue.config.productionTip = false
