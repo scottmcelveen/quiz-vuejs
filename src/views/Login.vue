@@ -2,6 +2,11 @@
     <div id="login">
         <h2>{{$route.params.message}}</h2>
         <amplify-authenticator>
+            <amplify-sign-up
+                slot="sign-up"
+                username-alias="email"
+                :form-fields.prop="formFields"
+                ></amplify-sign-up>
         </amplify-authenticator>
     </div>
 </template>
@@ -31,6 +36,23 @@ const listener = (data) => {
 Hub.listen('auth', listener);
 
 export default {
-    name: 'Login'
+    name: 'Login',
+    data() {
+        return {
+            formFields: [
+                {
+                    type: 'email',
+                    label: 'Email',
+                    placeholder: 'email address',
+                    required: true,
+                },{
+                    type: 'password',
+                    label: 'Password',
+                    placeholder: 'password',
+                    required: true,
+                }
+            ]
+        }
+    }
 }
 </script>
