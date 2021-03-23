@@ -1,5 +1,6 @@
 <template>
   <v-app>
+    <v-snackbar v-model="snackMessage" color="red" top :timeout="5000">{{snackMessage}}</v-snackbar>
     <v-main>
       <router-view></router-view>
     </v-main>
@@ -7,6 +8,8 @@
 </template>
 
 <script>
+import store from './store'
+
 export default {
   name: 'App',
 
@@ -14,7 +17,12 @@ export default {
   },
 
   data: () => ({
-    //
   }),
+
+  computed: {
+    snackMessage () {
+      return store.state.snackMessage
+    }
+  }
 };
 </script>
